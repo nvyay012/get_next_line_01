@@ -1,6 +1,6 @@
 #include "get_next_line_bonus.h"
 
-char	*get_read(char *save_str, int fd)
+static char	*get_read(char *save_str, int fd)
 {
 	char	*buffer;
 	ssize_t	read_n;
@@ -29,7 +29,7 @@ char	*get_read(char *save_str, int fd)
 	return (save_str);
 }
 
-char	*get_line(char *save_str)
+static char	*get_line(char *save_str)
 {
 	size_t	i;
 	char	*line;
@@ -55,7 +55,7 @@ char	*get_line(char *save_str)
 	return (line);
 }
 
-char	*left_lines(char *line, char *save_str)
+static char	*left_lines(char *line, char *save_str)
 {
 	int		i;
 	int		j;
