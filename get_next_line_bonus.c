@@ -85,10 +85,10 @@ static char	*left_lines(char *line, char *save_str)
 
 char	*get_next_line(int fd)
 {
-	static char	*save_str[1024];
+	static char	*save_str[FOPEN_MAX];
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0 || fd > FOPEN_MAX)
 		return (NULL);
 	save_str[fd] = get_read(save_str[fd], fd);
 	if (!save_str[fd])
